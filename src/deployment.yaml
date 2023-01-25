@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: deployment
+metadata:
+  name: meudeployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: web
+  template:
+    metadata:
+      labels:
+         app: web
+    spec:
+      containers:
+      - name: app
+        image: aluisio23/conversao-temperatura:v1
+        ports:
+        - containerPort: 80
+
